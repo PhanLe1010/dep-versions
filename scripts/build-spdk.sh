@@ -50,7 +50,7 @@ case "$ARCH" in
         make install
         ;;
     arm64)
-        ./configure --target-arch=native --disable-tests --disable-unit-tests --disable-examples --with-ublk --enable-debug
+        CFLAGS="-march=armv8-a" ./configure --target-arch=native --disable-tests --disable-unit-tests --disable-examples --with-ublk --enable-debug
         DPDKBUILD_FLAGS="-Dplatform=generic" make -j"$(nproc)"
         make install
         ;;
